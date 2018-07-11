@@ -1,0 +1,42 @@
+.filterTasksContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.basicFilterButStyles {
+  height: 48px;
+  color: white;
+  background-color: black;
+  outline: none;
+  border: 1px solid black;
+  font-size: 18px;
+  font-weight: bold;
+  transition: .5s;
+  border-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.basicFilterButStyles:hover {
+  background-color: white;
+  color: black;
+  transition: .5s;
+}
+
+.showAllBut {
+  padding: 3px 35px 0 35px;;
+  border-bottom-left-radius: 15px;
+}
+
+.showActiveBut {
+  border-left: 0;
+  border-right: 0;
+  padding: 3px 36px 0 36px;;
+}
+
+.showDoneBut {
+  padding: 3px 36px 0 36px;
+  border-bottom-right-radius: 15px;
+}

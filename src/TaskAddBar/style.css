@@ -1,0 +1,54 @@
+.taskAddBarContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list-show-but {
+  width: 50px;
+  height: 50px;
+  background-image: url("https://www.shareicon.net/data/128x128/2016/04/07/745878_arrows_512x512.png");
+  background-size: cover;
+  background-color: white;
+  transition: .4s;
+  outline: none;
+  border: 0;
+  border-top-left-radius: 15px;
+}
+
+.rot90 {
+  transform: rotate(90deg);
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 0px;
+}
+
+.add-button {
+  height: 50px;
+  color: white;
+  background-color: black;
+  outline: none;
+  border: 1px solid black;
+  border-left: 0;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 3px 10px 0 8px;
+  border-top-right-radius: 15px;
+  transition: .5s;
+}
+
+.add-button:hover {
+  background-color: white;
+  color: black;
+  transition: .5s;
+}
+
+.task-input {
+  width: 229px;
+  height: 46px;
+  padding-left: 3px;
+  padding-right: 2px;
+  outline: none;
+  border: 1px solid black;
+  font-size: 19px;
+}
