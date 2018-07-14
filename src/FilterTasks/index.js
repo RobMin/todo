@@ -2,35 +2,25 @@ import React, { Component } from "react";
 import "./style.css";
 
 class FilterTasks extends Component {
+  handleClick(e) {
+    let returnProp = "All";
+    if (e.target.textContent === "Active") returnProp = false;
+    if (e.target.textContent === "Done") returnProp = true;
+    this.props.filterByDoneChange(returnProp);
+  }
+
   render() {
     return (
       <div className="filterTasksContainer">
-        <button
-          className="showAllBut basicFilterButStyles"
-          onClick={() => {
-            this.props.filterByDoneChange("All");
-          }}
-        >
-          All
-        </button>
-
-        <button
-          className="showActiveBut basicFilterButStyles"
-          onClick={() => {
-            this.props.filterByDoneChange(false);
-          }}
-        >
-          Active
-        </button>
-
-        <button
-          className="showDoneBut basicFilterButStyles"
-          onClick={() => {
-            this.props.filterByDoneChange(true);
-          }}
-        >
-          Done
-        </button>
+        {["All", "Active", "Done"].map((v, i) => (
+          <button
+            key={i}
+            className={`show${v}But basicFilterButStyles`}
+            onClick={this.handleClick}
+          >
+            {v}
+          </button>
+        ))}
       </div>
     );
   }

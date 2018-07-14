@@ -8,30 +8,39 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import ContentEditable from "react-contenteditable";
 
 class TodoCard extends Component {
+  constructor() {
+    super();
+    this.taskRef = React.createRef();
+  }
+
+  blurHandler = () =>
+    this.props.taskContentModify(
+      this.props.task.id,
+      this.taskRef.current.lastHtml
+    );
+
+  statChangeCall = () => this.props.statChange(this.props.task.id);
+
+  deleteTodoCall = () => this.props.deleteTodo(this.props.task.id);
+
   render() {
     return (
       <div className="taskCard">
         <Switch
           checked={this.props.task.done}
           color="default"
-          onChange={() => {
-            this.props.statChange(this.props.task.id);
-          }}
+          onChange={this.statChangeCall}
         />
+
         <ContentEditable
-          spellCheck="false"
-          onChange={e => {
-            this.props.taskContentModify(this.props.task.id, e);
-          }}
-          className={"taskContent" + (this.props.task.done ? " crossline" : "")}
+          ref={this.taskRef}
+          onBlur={this.blurHandler}
           html={this.props.task.content}
+          spellCheck="false"
+          className={`taskContent ${this.props.task.done ? "crossline" : ""}`}
         />
-        <IconButton
-          aria-label="Delete"
-          onClick={() => {
-            this.props.deleteTodo(this.props.task.id);
-          }}
-        >
+
+        <IconButton aria-label="Delete" onClick={this.deleteTodoCall}>
           <DeleteIcon />
         </IconButton>
       </div>
