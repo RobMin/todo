@@ -1,32 +1,35 @@
-import React, { Component } from 'react';
-import './style.css'
+import React, { Component } from "react";
+import "./style.css";
 
 class TaskAddBar extends Component {
   constructor() {
     super();
     this.state = {
-      listShowButClass: 'list-show-but rot90',
-      inputVal: ''
+      listShowButClass: "list-show-but rot90",
+      inputVal: ""
     };
   }
 
   listShowBut = () => {
     this.props.showTodosChange();
-    if (this.state.listShowButClass === 'list-show-but') this.setState({ listShowButClass: 'list-show-but rot90' });
-    else this.setState({ listShowButClass: 'list-show-but' });
-  }
+    if (this.state.listShowButClass === "list-show-but")
+      this.setState({ listShowButClass: "list-show-but rot90" });
+    else this.setState({ listShowButClass: "list-show-but" });
+  };
 
-  handlePress = e => { if (e.key === "Enter") this.addTask(); }
+  handlePress = e => {
+    if (e.key === "Enter") this.addTask();
+  };
 
   addTask = () => {
     this.props.addToTodos(this.state.inputVal);
-    this.setState({ inputVal: '' });
-  }
+    this.setState({ inputVal: "" });
+  };
 
   handleInput = e => this.setState({ inputVal: e.target.value });
 
   render() {
-    return(
+    return (
       <div className="taskAddBarContainer">
         <button
           className={this.state.listShowButClass}

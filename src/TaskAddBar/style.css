@@ -11,7 +11,7 @@
   background-image: url("https://www.shareicon.net/data/128x128/2016/04/07/745878_arrows_512x512.png");
   background-size: cover;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   outline: none;
   border: 0;
   border-top-left-radius: 15px;
@@ -34,13 +34,13 @@
   font-weight: bold;
   padding: 3px 10px 0 8px;
   border-top-right-radius: 15px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .add-button:hover {
   background-color: white;
   color: black;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .task-input {

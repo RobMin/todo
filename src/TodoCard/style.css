@@ -15,7 +15,7 @@
   font-size: 19px;
   padding-right: 4px;
   width: 224px;
-  transition: .2s;
+  transition: 0.2s;
   word-wrap: break-word;
   word-break: break-all;
 }
@@ -23,5 +23,5 @@
 .crossline {
   text-decoration: line-through;
   color: #6f6f6f;
-  transition: .2s;
+  transition: 0.2s;
 }
