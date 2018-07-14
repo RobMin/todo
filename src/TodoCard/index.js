@@ -5,23 +5,22 @@ import Switch from "@material-ui/core/Switch";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-import ContentEditable from "react-contenteditable";
-
 class TodoCard extends Component {
-  constructor() {
-    super();
-    this.taskRef = React.createRef();
+  constructor(props) {
+    super(props);
+    this.state = {
+      taskContent: this.props.task.content
+    };
   }
 
-  blurHandler = () =>
-    this.props.taskContentModify(
-      this.props.task.id,
-      this.taskRef.current.lastHtml
-    );
+  blurHandler = e =>
+    this.props.taskContentModify(this.props.task.id, this.state.taskContent);
 
   statChangeCall = () => this.props.statChange(this.props.task.id);
 
   deleteTodoCall = () => this.props.deleteTodo(this.props.task.id);
+
+  taskContentChange = e => this.setState({ taskContent: e.target.value });
 
   render() {
     return (
@@ -32,10 +31,10 @@ class TodoCard extends Component {
           onChange={this.statChangeCall}
         />
 
-        <ContentEditable
-          ref={this.taskRef}
+        <input
+          onChange={this.taskContentChange}
           onBlur={this.blurHandler}
-          html={this.props.task.content}
+          value={this.state.taskContent}
           spellCheck="false"
           className={`taskContent ${this.props.task.done ? "crossline" : ""}`}
         />

@@ -23,7 +23,7 @@
   border-top-left-radius: 0px;
 }
 
-.add-button {
+.addButton {
   height: 50px;
   color: white;
   background-color: black;
@@ -37,7 +37,7 @@
   transition: 0.5s;
 }
 
-.add-button:hover {
+.addButton:hover {
   background-color: white;
   color: black;
   transition: 0.5s;

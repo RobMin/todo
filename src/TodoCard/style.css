@@ -15,9 +15,11 @@
   font-size: 19px;
   padding-right: 4px;
   width: 224px;
+  height: 42px;
   transition: 0.2s;
+  border: 0;
   word-wrap: break-word;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .crossline {

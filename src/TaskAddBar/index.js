@@ -42,7 +42,7 @@ class TaskAddBar extends Component {
           value={this.state.inputVal}
           onChange={this.handleInput}
         />
-        <button className="add-button" onClick={this.addTask}>
+        <button className="addButton" onClick={this.addTask}>
           Add
         </button>
       </div>

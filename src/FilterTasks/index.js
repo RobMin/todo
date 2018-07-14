@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import "./style.css";
 
 class FilterTasks extends Component {
-  handleClick(e) {
+  handleClick = e => {
     let returnProp = "All";
     if (e.target.textContent === "Active") returnProp = false;
     if (e.target.textContent === "Done") returnProp = true;
     this.props.filterByDoneChange(returnProp);
-  }
+  };
 
   render() {
     return (

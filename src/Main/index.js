@@ -27,9 +27,8 @@ class Main extends Component {
   addToTodos = content => {
     content = content.trim();
     if (!content) return;
-    const { todos } = this.state;
     this.state.todos.unshift({
-      content: content.trim(),
+      content: content,
       done: false,
       id: this.idGen()
     });
@@ -61,13 +60,14 @@ class Main extends Component {
   showTodosChange = () => this.setState({ showTodos: !this.state.showTodos });
 
   taskContentModify = (id, content) => {
-    content.trim();
+    content = content.trim();
+    if (!content) {
+      this.deleteTodo(id);
+      return;
+    }
     const { todos } = this.state;
     todos.forEach((v, i) => {
-      if (v.id === id) {
-        if (!content) todos.splice(i, 1);
-        else todos[i].content = content;
-      }
+      if (v.id === id) todos[i].content = content;
     });
     this.setState({ todos });
   };

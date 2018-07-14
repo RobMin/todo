@@ -12,7 +12,7 @@ class TasksList extends Component {
       >
         {this.props.filteredTodos.map((v, i) => (
           <TodoCard
-            key={i}
+            key={v.id}
             task={this.props.filteredTodos[i]}
             statChange={this.props.statChange}
             deleteTodo={this.props.deleteTodo}
