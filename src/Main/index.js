@@ -36,20 +36,19 @@ class Main extends Component {
   };
 
   statChange = id => {
-    const { todos } = this.state;
-    todos.forEach((v, i) => {
-      if (v.id === id) todos[i].done = !todos[i].done;
+    const newTodos = this.state.todos.map((v, i) => {
+      if (v.id === id) v.done = !v.done;
+      return v;
     });
-    this.filterTodos(this.state.filterByDone);
+    this.filterTodos(this.state.filterByDone, newTodos);
   };
 
   deleteTodo = id => {
-    this.state.todos = this.state.todos.filter(v => v.id !== id);
-    this.filterTodos(this.state.filterByDone);
+    const newTodos = this.state.todos.filter(v => v.id !== id);
+    this.filterTodos(this.state.filterByDone, newTodos);
   };
 
-  filterTodos = by => {
-    const { todos } = this.state;
+  filterTodos = (by, todos = this.state.todos) => {
     let filteredTodos = todos;
     if (by !== "All") {
       filteredTodos = todos.filter(v => v.done === by);
